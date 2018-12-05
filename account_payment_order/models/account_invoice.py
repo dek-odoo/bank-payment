@@ -93,6 +93,7 @@ class AccountInvoice(models.Model):
                     payorder = apoo.create(inv._prepare_new_payment_order(
                         payment_mode
                     ))
+                    payorder.payment_mode_id_change()
                     new_payorder = True
                 result_payorder_ids.append(payorder.id)
                 action_payment_type = payorder.payment_type
